@@ -1,1 +1,17 @@
-<p>login-form works!</p>
+<form [formGroup]="loginForm" #formDirective=ngForm (ngSubmit)="logIn(formDirective)">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input id ="email" matInput placeholder="pat@example.com" formControlName="email" required>
+      <!-- <mat-error *ngIf="email.invalid">Email must be valid</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" color="primary" [disabled]="!loginForm.valid">Log in</button>
+</form>
