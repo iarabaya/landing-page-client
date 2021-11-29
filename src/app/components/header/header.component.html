@@ -1,30 +1,19 @@
 <header>
-  <div>
-    <h1>Logo</h1>
-  </div>
-  <div>
-    <h1>Titulo</h1>
-  </div>
-  <nav>
-    <ul>
-      <li>
-        <a routerLink="/home">Inicio</a>
-      </li>
-      <li>
-        <a routerLink="/login">Login</a>
-      </li>
-      <li>
-        <a routerLink="/request">Solicitar Viaje</a>
-      </li>
-      <li>
-        <a routerLink="/status">Estado del Viaje</a>
-      </li>
-      <li>
-        <a routerLink="/history">Historial</a>
-      </li>
-      <li>
-        <a>Cerrar Sesión</a>
-      </li>
-    </ul>
-  </nav>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>TODO IT</span>
+      <span class="example-spacer"></span>
+      <button type="button" [matMenuTriggerFor]="menu" mat-icon-button class="example-icon" aria-label="menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      </mat-toolbar-row> 
+    </mat-toolbar>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><a routerLink="/home">Inicio</a></button>
+      <button mat-menu-item><a routerLink="/login">Login</a></button>
+      <button mat-menu-item><a routerLink="/request">Solicitar Viaje</a></button>
+      <button mat-menu-item><a routerLink="/status">Estado del Viaje</a></button>
+      <button mat-menu-item><a routerLink="/history">Historial</a></button>
+      <button mat-menu-item><a>Cerrar Sesión</a></button>
+    </mat-menu>       
 </header>

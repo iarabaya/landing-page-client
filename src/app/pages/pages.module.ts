@@ -6,6 +6,7 @@ import { ComponentsModule } from '../components/components.module';
 import { RequestComponent } from './request/request.component';
 import { StatusComponent } from './status/status.component';
 import { HistoryComponent } from './history/history.component';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HistoryComponent } from './history/history.component';
   imports: [
     CommonModule,
     ComponentsModule,
+    MaterialModule
   ],
   exports:[
     HomeComponent,
