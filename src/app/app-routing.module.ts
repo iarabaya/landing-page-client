@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
-import { TripStatusComponent } from './pages/trip-status/trip-status.component';
-import { TripRequestComponent } from './pages/trip-request/trip-request.component';
+import { RequestComponent } from './pages/request/request.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { StatusComponent } from './pages/status/status.component';
 
 const routes: Routes = [
   {
@@ -17,15 +17,15 @@ const routes: Routes = [
   },
   {
     path: 'request',
-    component: TripRequestComponent
+    component: RequestComponent
   },
   {
     path: 'history',
-    component: TripHistoryComponent
+    component: HistoryComponent
   },
   {
     path: 'status',
-    component: TripStatusComponent
+    component: StatusComponent
   },
   {
     path:'**',

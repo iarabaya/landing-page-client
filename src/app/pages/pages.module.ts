@@ -2,24 +2,31 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { TripRequestComponent } from './trip-request/trip-request.component';
-import { TripHistoryComponent } from './trip-history/trip-history.component';
-import { TripStatusComponent } from './trip-status/trip-status.component';
 import { ComponentsModule } from '../components/components.module';
-
-
+import { RequestComponent } from './request/request.component';
+import { StatusComponent } from './status/status.component';
+import { HistoryComponent } from './history/history.component';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
-    TripRequestComponent,
-    TripHistoryComponent,
-    TripStatusComponent
+    RequestComponent,
+    StatusComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,
     ComponentsModule,
+    MaterialModule
+  ],
+  exports:[
+    HomeComponent,
+    LoginComponent,
+    RequestComponent,
+    StatusComponent,
+    HistoryComponent
   ]
 })
 export class PagesModule { }

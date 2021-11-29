@@ -3,21 +3,28 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
-
-
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RequestFormComponent } from './request-form/request-form.component';
+import { MaterialModule } from '../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginFormComponent,
+    RequestFormComponent
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports:[
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginFormComponent
   ]
 })
 export class ComponentsModule { }
