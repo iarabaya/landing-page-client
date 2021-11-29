@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TripHistoryComponent } from './trip-history.component';
+import { RequestComponent } from './request.component';
 
-describe('TripHistoryComponent', () => {
-  let component: TripHistoryComponent;
-  let fixture: ComponentFixture<TripHistoryComponent>;
+describe('RequestComponent', () => {
+  let component: RequestComponent;
+  let fixture: ComponentFixture<RequestComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TripHistoryComponent ]
+      declarations: [ RequestComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TripHistoryComponent);
+    fixture = TestBed.createComponent(RequestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
