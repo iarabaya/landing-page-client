@@ -24,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports:[
     HeaderComponent,
     FooterComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    RequestFormComponent
   ]
 })
 export class ComponentsModule { }
