@@ -1,38 +1,44 @@
 <app-header></app-header>
 <main>
   <p>HISTORIAL DE VIAJES</p>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Filtro</mat-label>
+    <input matInput>
+  </mat-form-field>
+
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Position Column -->
+    <!-- Fecha Column -->
     <ng-container matColumnDef="fecha">
       <th mat-header-cell *matHeaderCellDef class="cell-header">Fecha</th>
       <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
     </ng-container>
   
-    <!-- Name Column -->
+    <!-- Marca Column -->
     <ng-container matColumnDef="marca">
       <th mat-header-cell *matHeaderCellDef class="cell-header">Marca</th>
       <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
     </ng-container>
   
-    <!-- Weight Column -->
+    <!-- Mdelo Column -->
     <ng-container matColumnDef="modelo">
       <th mat-header-cell *matHeaderCellDef class="cell-header">Modelo</th>
       <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
     </ng-container>
   
-    <!-- Symbol Column -->
+    <!-- Equipo Column -->
     <ng-container matColumnDef="equipo">
       <th mat-header-cell *matHeaderCellDef class="cell-header">Equipo</th>
       <td mat-cell *matCellDef="let element"> {{element.equipo}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Envio Column -->
     <ng-container matColumnDef="envio">
       <th mat-header-cell *matHeaderCellDef class="cell-header">Envio</th>
       <td mat-cell *matCellDef="let element"> {{element.envio}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Entregado Column -->
     <ng-container matColumnDef="entregado">
       <th mat-header-cell *matHeaderCellDef class="cell-header">Entregado</th>
       <td mat-cell *matCellDef="let element"> {{element.entregado}} </td>

@@ -1,1 +1,24 @@
-<p>request-form works!</p>
+<form 
+  [formGroup]="requestForm" 
+  #formDirective=ngForm 
+  (ngSubmit)="requestRetirement(formDirective)"
+  autocomplete="off"
+>
+  <h1>Formulario de retiro del equipo</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Marca</mat-label>
+    <input matInput formControlName="mark" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Modelo</mat-label>
+    <input matInput formControlName="model"  required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Falla</mat-label>
+    <input matInput formControlName="failure" required>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary">Solicitar retiro</button> 
+</form>
