@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Request, RequestResponse } from 'src/app/interfaces/interfaces';
 
-export interface Equipment {
-  clienteId: number;
-  mark: string;
-  model: string;
-  failure: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +11,10 @@ export class RetirementService {
 
   constructor(private http: HttpClient) { }
 
-  request(equipment: Equipment):  Observable<Equipment>  {
-    //  let headers = new HttpHeaders({'Content-Type':'application/json', 'Access-Control-Allow-Origin': 'http://localhost:4200/'}); 
-    return  this.http.post<Equipment>('api/Retirement', equipment);
+  request(equipment: Request)  {
+    let headers = new HttpHeaders({'Content-Type':'application/json', 'Access-Control-Allow-Origin': 'http://localhost:4200/'}); 
+    
+    return  this.http.post<RequestResponse>(`api/Retirement?clientId=${equipment.clientId}&mark=${equipment.mark}&model=${equipment.model}&failure=${equipment.failure}` 
+    ,equipment);
   }
 }

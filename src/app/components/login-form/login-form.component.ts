@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormControl, FormGroupDirective, Validators} from '@angular/forms';
-import { LoginService, User } from 'src/app/services/login/login.service';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login/login.service';
+import { User } from '../../interfaces/interfaces';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -14,7 +16,7 @@ export class LoginFormComponent {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor( private loginService: LoginService){}
+  constructor( private loginService: LoginService, private router: Router){}
 
   user: User = {
     email: '',
@@ -30,7 +32,12 @@ export class LoginFormComponent {
 
     this.loginService.login(this.user.email, this.user.password).subscribe( res => {
       console.log(res)
-      localStorage.setItem('userLoged', JSON.stringify(this.user.email));
+      if(res.id){
+        localStorage.setItem('userLoged', JSON.stringify(this.user.email));
+        this.router.navigateByUrl('/request');
+      }else{
+        console.log(res);
+      }
     })
 
     formDirective.resetForm();

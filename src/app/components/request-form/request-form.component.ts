@@ -1,6 +1,8 @@
 import { Component} from '@angular/core';
-import { RetirementService, Equipment } from 'src/app/services/retirement/retirement.service';
+import { RetirementService } from 'src/app/services/retirement/retirement.service';
 import { FormGroup, FormControl, FormGroupDirective, Validators} from '@angular/forms';
+import { Request } from '../../interfaces/interfaces';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-request-form',
   templateUrl: './request-form.component.html',
@@ -8,7 +10,7 @@ import { FormGroup, FormControl, FormGroupDirective, Validators} from '@angular/
 })
 export class RequestFormComponent  {
 
-  constructor (private retirementService: RetirementService) { }
+  constructor (private retirementService: RetirementService, private router: Router) { }
 
   requestForm = new FormGroup({
     mark: new FormControl('', [Validators.required]),
@@ -17,8 +19,8 @@ export class RequestFormComponent  {
   })
   
   
-  equipment: Equipment = {
-    clienteId: 18,
+  equipment: Request = {
+    clientId: 18,
     mark: '',
     model: '',
     failure: ''
@@ -26,15 +28,15 @@ export class RequestFormComponent  {
   
   requestRetirement( formDirective: FormGroupDirective){
     console.log('has solicitado el retiro de tu equipo');
-    console.warn(this.requestForm.value);
   
-    this.equipment = this.requestForm.value;
+    this.equipment = { clientId: 18, ...this.requestForm.value};
   
+    console.log(this.equipment);
     this.retirementService.request(this.equipment).subscribe( res => {
       console.log(res)
     })
   
-    formDirective.resetForm();
-    this.requestForm.reset();
+    // formDirective.resetForm();
+    // this.requestForm.reset();
   }
 }
