@@ -9,11 +9,11 @@
       </mat-toolbar-row> 
     </mat-toolbar>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item><a routerLink="/home">Inicio</a></button>
-      <button mat-menu-item><a routerLink="/login">Login</a></button>
-      <button mat-menu-item><a routerLink="/request">Solicitar Viaje</a></button>
-      <button mat-menu-item><a routerLink="/status">Estado del Viaje</a></button>
-      <button mat-menu-item><a routerLink="/history">Historial</a></button>
-      <button mat-menu-item><a>Cerrar Sesión</a></button>
+      <button mat-menu-item routerLink="/home">Inicio</button>
+      <button *ngIf="!loguedIn" mat-menu-item routerLink="/login">Login</button>
+      <button *ngIf="loguedIn" mat-menu-item routerLink="/request">Solicitar Viaje</button>
+      <button *ngIf="loguedIn" mat-menu-item routerLink="/status">Estado de Viajes</button>
+      <button *ngIf="loguedIn" mat-menu-item routerLink="/history">Historial</button>
+      <button *ngIf="loguedIn" mat-menu-item (click)="logout()">Cerrar Sesión</button>
     </mat-menu>       
 </header>
