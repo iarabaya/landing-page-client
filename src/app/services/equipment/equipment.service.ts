@@ -14,7 +14,7 @@ export class EquipmentService {
     //  let headers = new HttpHeaders({'Content-Type':'application/json', 'Access-Control-Allow-Origin': 'http://localhost:4200/'}); 
     
     return  this.http.get<EquipmentResponse[]>(url).pipe( 
-        catchError( res => of(res.error))
+        // catchError( res => of(res.error))
       );
   }
 }

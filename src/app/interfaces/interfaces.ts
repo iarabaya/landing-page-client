@@ -46,7 +46,7 @@ export interface Request {
 
 export interface RequestResponse {
   id: number;
-  creationDate: Date;
+  creationDate: string;
   lastStatusTravel: number,
   travelEquipmentDTOs: TravelEquipmentDTO[]
 }
@@ -80,7 +80,7 @@ export interface EquipmentResponse{
 
 interface TravelEquipmentDTO {
   id: number;
-  operationDate: Date;
+  operationDate: string;
   observation?: string;
   cadete?: Cadete;
   operator: Cliente;
