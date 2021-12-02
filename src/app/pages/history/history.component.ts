@@ -12,7 +12,7 @@ export interface RecordItem {
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.sass']
+  styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent {
   displayedColumns: string[] = ['fecha', 'marca', 'modelo', 'equipo','envio', 'entregado'];

@@ -7,6 +7,7 @@ import { RequestComponent } from './request/request.component';
 import { StatusComponent } from './status/status.component';
 import { HistoryComponent } from './history/history.component';
 import { MaterialModule } from '../material.module';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MaterialModule } from '../material.module';
   imports: [
     CommonModule,
     ComponentsModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   exports:[
     HomeComponent,
