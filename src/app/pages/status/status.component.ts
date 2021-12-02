@@ -13,7 +13,7 @@ export interface EquipmentItem {
 @Component({
   selector: 'app-status',
   templateUrl: './status.component.html',
-  styleUrls: ['./status.component.sass']
+  styleUrls: ['./status.component.scss']
 })
 export class StatusComponent {
   displayedColumns: string[] = ['fecha', 'marca', 'modelo', 'equipo','envio'];

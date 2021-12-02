@@ -1,5 +1,25 @@
 <app-header></app-header>
 <main>
-  
+  <div class="banner">
+    <img src="../../../assets/twitter_header_photo_2.png" alt="todo it banner">
+  </div>
+  <div class="option">
+    <h3>Solicitud de Retiro</h3>
+    <p>Puedes solicitar el retiro de tu equipo para ser reparado</p>
+    <button *ngIf="loguedIn" routerLink="/request" mat-raised-button type="button" color="primary">Solcitar Retiro</button>
+  </div>
+
+  <div class="option">
+    <h3>Estado de Viajes</h3>
+    <p>Puedes estar al tanto de todos tus viajes y sus estados</p>
+    <button *ngIf="loguedIn" routerLink="/status" mat-raised-button type="button" color="primary">Ver Estado de Viajes</button>
+  </div>
+
+  <div class="option">
+    <h3>Historial de Viajes</h3>
+    <p>Puedes ver el historial de todas tus operaciones con la empresa.</p>
+    <button *ngIf="loguedIn" routerLink="/history" mat-raised-button type="button" color="primary">Ver Historial</button>
+    <button *ngIf="!loguedIn" routerLink="/login" mat-raised-button type="button" color="primary">Log in</button>
+  </div>
 </main>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
