@@ -33,7 +33,7 @@ export class LoginFormComponent {
       console.log(res)
       if(res.id){
         localStorage.setItem('email', this.user.email);
-        this.router.navigateByUrl('/request');
+        this.router.navigateByUrl('/home');
       }else{
         Swal.fire('Error', res, 'error');
       }
