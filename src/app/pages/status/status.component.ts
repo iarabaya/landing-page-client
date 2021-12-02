@@ -1,6 +1,7 @@
 import { I18nSelectPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EquipmentService } from '../../services/equipment/equipment.service';
+import { Router } from '@angular/router';
 
 export interface EquipmentItem {
   fecha: string;
@@ -15,7 +16,8 @@ export interface EquipmentItem {
   templateUrl: './status.component.html',
   styleUrls: ['./status.component.scss']
 })
-export class StatusComponent {
+export class StatusComponent implements OnInit{
+  loguedIn = localStorage.getItem('email') || '';
   displayedColumns: string[] = ['fecha', 'marca', 'modelo', 'equipo','envio'];
   dataSource : EquipmentItem[] = [];
 
@@ -45,8 +47,13 @@ export class StatusComponent {
     '10' : 'renunciado',
   }
 
-  constructor(private equipmentService: EquipmentService){}
+  constructor(private router: Router, private equipmentService: EquipmentService){}
 
+  ngOnInit(){
+    if(!this.loguedIn){
+      this.router.navigateByUrl('/login')
+    }
+  }
   getStatus(){
     const clientId = parseInt(localStorage.getItem('clientId') || '1');
 

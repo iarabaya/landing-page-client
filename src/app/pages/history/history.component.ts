@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EquipmentService } from '../../services/equipment/equipment.service';
+import { Router } from '@angular/router';
 export interface RecordItem {
   fecha: string;
   marca: string;
@@ -15,6 +16,7 @@ export interface RecordItem {
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent {
+  loguedIn = localStorage.getItem('email') || '';
   displayedColumns: string[] = ['fecha', 'marca', 'modelo', 'equipo','envio', 'entregado'];
   dataSource: RecordItem[] = [];
 
@@ -44,7 +46,13 @@ export class HistoryComponent {
     '10' : 'renunciado',
   }
 
-  constructor(private equipmentService: EquipmentService){}
+  constructor(private router : Router,private equipmentService: EquipmentService){}
+
+  ngOnInit(){
+    if(!this.loguedIn){
+      this.router.navigateByUrl('/login')
+    }
+  }
 
   getRecords(){
     const clientId = parseInt(localStorage.getItem('clientId') || '1');
