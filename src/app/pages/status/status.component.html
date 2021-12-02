@@ -2,10 +2,14 @@
 <main>
   <p>ESTADO DEL VIAJE</p>
   
-  <mat-form-field appearance="fill">
+  <!-- <mat-form-field appearance="fill">
     <mat-label>Filtro</mat-label>
     <input matInput>
-  </mat-form-field>
+  </mat-form-field> -->
+  
+  <button mat-raised-button type="button" color="primary" (click)="getStatus()">
+    Actualizar estados
+  </button> 
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Position Column -->

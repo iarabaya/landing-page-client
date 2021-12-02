@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EquipmentService } from '../../services/equipment/equipment.service';
 
 export interface PeriodicElement {
   fecha: number;
@@ -29,4 +30,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class StatusComponent {
   displayedColumns: string[] = ['fecha', 'marca', 'modelo', 'equipo','envio'];
   dataSource = ELEMENT_DATA;
+
+  constructor(private equipmentService: EquipmentService){}
+
+  getStatus(){
+    const clientId = parseInt(localStorage.getItem('clientId') || '1');
+    this.equipmentService.getEquipment(clientId).subscribe(
+      res => console.log(res)
+    )
+  }
 }
