@@ -20,5 +20,5 @@
     <input matInput formControlName="failure" required>
   </mat-form-field>
 
-  <button mat-raised-button type="submit" color="primary">Solicitar retiro</button> 
+  <button mat-raised-button type="submit" color="primary" [disabled]="requestForm.invalid">Solicitar retiro</button> 
 </form>

@@ -3,6 +3,8 @@ import { RetirementService } from 'src/app/services/retirement/retirement.servic
 import { FormGroup, FormControl, FormGroupDirective, Validators} from '@angular/forms';
 import { Request } from '../../interfaces/interfaces';
 import { Router } from '@angular/router';
+
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-request-form',
   templateUrl: './request-form.component.html',
@@ -20,7 +22,7 @@ export class RequestFormComponent  {
   
   
   equipment: Request = {
-    clientId: 18,
+    clientId: 0,
     mark: '',
     model: '',
     failure: ''
@@ -29,14 +31,19 @@ export class RequestFormComponent  {
   requestRetirement( formDirective: FormGroupDirective){
     console.log('has solicitado el retiro de tu equipo');
   
-    this.equipment = { clientId: 18, ...this.requestForm.value};
+    this.equipment = { clientId: parseInt(localStorage.getItem('clientId') || ''), ...this.requestForm.value};
   
     console.log(this.equipment);
     this.retirementService.request(this.equipment).subscribe( res => {
       console.log(res)
+      if(res.id){
+        Swal.fire('Operacion exitosa', `${res.creationDate}`, 'success');
+      }else{
+        Swal.fire('Error', res , 'error');
+      }
     })
   
-    // formDirective.resetForm();
-    // this.requestForm.reset();
+    formDirective.resetForm();
+    this.requestForm.reset();
   }
 }

@@ -1,4 +1,6 @@
-//INTERFACES DE LOGIN 
+// --------------------------------------
+//        INTERFACES DE LOGIN 
+// --------------------------------------
 export interface User {
   email: string;
   password: string;
@@ -25,7 +27,16 @@ export interface LoginResponse {
 
 }
 
-//INTERFACES DE DE SOLICITUD DE VIAJE
+export interface UserData{
+  clientId: number;
+  email: string;
+  fullName: string;
+  address?: string;
+  cellPhone?: string;
+}
+// --------------------------------------
+//  INTERFACES DE DE SOLICITUD DE VIAJE
+// --------------------------------------
 export interface Request {
   clientId: number;
   mark: string;
@@ -35,19 +46,9 @@ export interface Request {
 
 export interface RequestResponse {
   id: number;
-  creationDate: Date;
+  creationDate: string;
   lastStatusTravel: number,
-  travelEquipmentDTOs: [
-    {
-      id: number,
-      operationDate: Date,
-      observation?: string,
-      cadete?: string,
-      operator: Cliente;
-      equipment: Equipment;
-      statusTravel: 1;
-    }
-  ]
+  travelEquipmentDTOs: TravelEquipmentDTO[]
 }
 
 interface Equipment{
@@ -65,4 +66,32 @@ interface Cliente {
   fullName?: string,
   address?: string,
   cellPhone?: string;
+}
+// --------------------------------------
+//       INTERFACES DE EQUIPMENT
+// --------------------------------------
+export interface EquipmentResponse{
+  equipmentId: number;
+  mark?: string;
+  model?: string;
+  failure?: string;
+  travelEquipmentDTOs: TravelEquipmentDTO[];
+}
+
+interface TravelEquipmentDTO {
+  id: number;
+  operationDate: string;
+  observation?: string;
+  cadete?: Cadete;
+  operator: Cliente;
+  equipment?: string;
+  statusTravel: number;
+}
+
+interface Cadete {
+  id: number;
+  email: string;
+  fullName: string;
+  address: string;
+  cellPhone: string;
 }
